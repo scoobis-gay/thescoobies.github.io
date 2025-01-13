@@ -1,0 +1,372 @@
+get_global 7
+set_local 5
+get_global 7
+i32.const 48
+i32.add 
+set_global 7
+i32.const 6376265
+i32.const 1
+i32.const 0
+call _wp_read
+i32.load8_s align=0 offset=0
+i32.eqz 
+if 
+  i32.const 4661340
+  i32.const 4
+  i32.const 0
+  call _wp_read
+  i32.load align=2 offset=0
+  call 100606
+  i32.const 6376265
+  i32.const 1
+  i32.store8 align=0 offset=0
+  get_global 18
+  if 
+    call _wp_write
+  end 
+end 
+get_local 5
+i32.const 24
+i32.add 
+set_local 6
+get_local 5
+i32.const 8
+i32.add 
+set_local 7
+block 
+  get_local 0
+  i32.const 1
+  i32.const 24
+  call _wp_read
+  i32.load8_s align=0 offset=24
+  i32.eqz 
+  if 
+    get_local 0
+    i32.const 1
+    i32.const 25
+    call _wp_read
+    i32.load8_s align=0 offset=25
+    if 
+      get_local 0
+      i32.const 0
+      call 35348
+      br 2
+    end 
+    get_local 0
+    i32.const 1
+    i32.const 110
+    call _wp_read
+    i32.load8_s align=0 offset=110
+    i32.eqz 
+    if 
+      get_local 0
+      i32.const 4
+      i32.const 104
+      call _wp_read
+      i32.load align=2 offset=104
+      i32.const 1
+      i32.lt_s 
+      get_local 4
+      i32.or 
+      if 
+        get_local 0
+        get_local 0
+        i32.const 4
+        i32.const 100
+        call _wp_read
+        i32.load align=2 offset=100
+        get_local 1
+        i32.sub 
+        i32.store align=2 offset=100
+        get_global 18
+        if 
+          call _wp_write
+        end 
+        else 
+          get_local 0
+          get_local 0
+          i32.const 4
+          i32.const 104
+          call _wp_read
+          i32.load align=2 offset=104
+          get_local 1
+          i32.sub 
+          i32.store align=2 offset=104
+          get_global 18
+          if 
+            call _wp_write
+          end 
+          get_local 0
+          i32.const 4
+          i32.const 104
+          call _wp_read
+          i32.load align=2 offset=104
+          i32.const 0
+          i32.lt_s 
+          if 
+            get_local 0
+            get_local 0
+            i32.const 4
+            i32.const 104
+            call _wp_read
+            i32.load align=2 offset=104
+            get_local 0
+            i32.const 4
+            i32.const 100
+            call _wp_read
+            i32.load align=2 offset=100
+            i32.add 
+            i32.store align=2 offset=100
+            get_global 18
+            if 
+              call _wp_write
+            end 
+            get_local 0
+            i32.const 0
+            i32.store align=2 offset=104
+            get_global 18
+            if 
+              call _wp_write
+            end 
+          end 
+        end 
+        get_local 0
+        i32.const 4
+        i32.const 100
+        call _wp_read
+        i32.load align=2 offset=100
+        i32.const 0
+        i32.lt_s 
+        if 
+          get_local 0
+          i32.const 0
+          i32.store align=2 offset=100
+          get_global 18
+          if 
+            call _wp_write
+          end 
+        end 
+        get_local 0
+        i32.const 0
+        call 71959
+        i32.const 0
+        call 96631
+        if 
+          get_local 0
+          i32.const 4
+          i32.const 100
+          call _wp_read
+          i32.load align=2 offset=100
+          i32.const 1
+          i32.lt_s 
+          if 
+            i32.const 6257216
+            i32.const 4
+            i32.const 0
+            call _wp_read
+            i32.load align=2 offset=0
+            drop 
+            get_local 0
+            i32.const 44
+            i32.add 
+            i32.const 1
+            i32.const 4
+            call _wp_read
+            i32.load8_s align=0 offset=4
+            i32.eqz 
+            if 
+              get_local 6
+              get_local 2
+              i32.const 8
+              i32.const 0
+              call _wp_read
+              i64.load align=2 offset=0
+              i64.store align=2 offset=0
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 6
+              get_local 2
+              i32.const 8
+              i32.const 8
+              call _wp_read
+              i64.load align=2 offset=8
+              i64.store align=2 offset=8
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 0
+              i32.const 56
+              i32.add 
+              tee_local 1
+              get_local 6
+              i32.const 8
+              i32.const 0
+              call _wp_read
+              i64.load align=2 offset=0
+              i64.store align=2 offset=0
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 1
+              get_local 6
+              i32.const 8
+              i32.const 8
+              call _wp_read
+              i64.load align=2 offset=8
+              i64.store align=2 offset=8
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 5
+              get_local 3
+              i32.const 8
+              i32.const 0
+              call _wp_read
+              i64.load align=2 offset=0
+              i64.store align=3 offset=0
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 6
+              get_local 5
+              i32.const 8
+              i32.const 0
+              call _wp_read
+              i64.load align=2 offset=0
+              i64.store align=2 offset=0
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 0
+              get_local 6
+              i32.const 8
+              i32.const 0
+              call _wp_read
+              i64.load align=2 offset=0
+              i64.store align=2 offset=44
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 0
+              i32.const 0
+              call 35348
+            end 
+          end 
+          get_local 0
+          i32.const 0
+          i32.const 0
+          call 35293
+          if 
+            i32.const 5
+            i32.const 6238520
+            i32.const 4
+            i32.const 0
+            call _wp_read
+            i32.load align=2 offset=0
+            i32.const 4
+            i32.const 92
+            call _wp_read
+            i32.load align=2 offset=92
+            i32.const 4
+            i32.const 0
+            call _wp_read
+            i32.load align=2 offset=0
+            i32.const 4
+            i32.const 72
+            call _wp_read
+            i32.load align=2 offset=72
+            get_local 0
+            i32.const 4
+            i32.const 100
+            call _wp_read
+            i32.load align=2 offset=100
+            call 33138
+            i32.const 5
+            i32.const 6238520
+            i32.const 4
+            i32.const 0
+            call _wp_read
+            i32.load align=2 offset=0
+            i32.const 4
+            i32.const 92
+            call _wp_read
+            i32.load align=2 offset=92
+            i32.const 4
+            i32.const 0
+            call _wp_read
+            i32.load align=2 offset=0
+            i32.const 4
+            i32.const 76
+            call _wp_read
+            i32.load align=2 offset=76
+            get_local 0
+            i32.const 4
+            i32.const 104
+            call _wp_read
+            i32.load align=2 offset=104
+            call 33138
+            i32.const 6257276
+            i32.const 4
+            i32.const 0
+            call _wp_read
+            i32.load align=2 offset=0
+            drop 
+            get_local 2
+            i32.const 1
+            i32.const 12
+            call _wp_read
+            i32.load8_s align=0 offset=12
+            if 
+              get_local 0
+              i32.const 0
+              call 83331
+              get_local 7
+              get_local 2
+              i32.const 6246208
+              i32.const 4
+              i32.const 0
+              call _wp_read
+              i32.load align=2 offset=0
+              call 34141
+              get_local 6
+              get_local 7
+              i32.const 8
+              i32.const 0
+              call _wp_read
+              i64.load align=2 offset=0
+              i64.store align=2 offset=0
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 6
+              get_local 7
+              i32.const 4
+              i32.const 8
+              call _wp_read
+              i32.load align=2 offset=8
+              i32.store align=2 offset=8
+              get_global 18
+              if 
+                call _wp_write
+              end 
+              get_local 6
+              i32.const 0
+              call 35861
+            end 
+          end 
+        end 
+      end 
+    end 
+  end 
+  get_local 5
+  set_global 7
+end 
