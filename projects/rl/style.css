@@ -1,0 +1,32 @@
+body {
+    --main-bg: black;
+    --primary: white;
+    --secondary: gray;
+    background-color: var(--main-bg);
+    color: var(--primary);
+    text-align: center;
+}
+
+#grid {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    border: 0.5vw solid var(--secondary);
+    width: 50vh;
+    height: 50vh;
+    border-width: 5px;
+}
+
+.space {
+    display: inline-block;
+    vertical-align: top;
+    width: 15vh;
+    height: 15vh;
+    margin-left: 0.5vh;
+    margin-top: 1vh;
+    margin-right: 0.5vh;
+    margin-bottom: 0.5vh;
+    font-size: xx-large;
+    line-height: 0%;
+}
