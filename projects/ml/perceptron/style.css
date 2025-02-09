@@ -1,0 +1,12 @@
+body {
+    --main-bg: black;
+    --primary: white;
+    --secondary: gray;
+    background-color: var(--main-bg);
+    color: var(--primary);
+    text-align: center;
+}
+
+canvas {
+    background-color: white;
+}

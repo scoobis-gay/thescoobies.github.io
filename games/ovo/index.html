@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>OvO</title>
+	
+	<!-- Standardised web app manifest -->
+	<link rel="manifest" href="./appmanifest.json">
+	
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon" sizes="256x256" href="./icon-256.png">
+	<meta name="HandheldFriendly" content="true">
+	
+	<!-- Chrome for Android web app tags -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" sizes="256x256" href="./icon-256.png">
+
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		html, body {
+			background: #000;
+			color: #fff;
+			overflow: hidden;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+		canvas {
+			touch-action-delay: none;
+			touch-action: none;
+			-ms-touch-action: none;
+		}
+    </style>
+	
+	<link href="animate.css" rel="stylesheet" type="text/css">
+	<link href="hmmg_layoutTransition.css" rel="stylesheet" type="text/css">
+	<link href="jquery.gritter.css" rel="stylesheet" type="text/css">
+
+<script src="offlineClient.js"></script><style>.animated,animated.hinge,.animated.flipOutX,.animated.flipOutY,.animated.bounceIn,.animated.bounceOut,.animated.flipOutXX,.animated.flipInXX,.animated.flipInYY,.animated.flipOutYY{-webkit-animation-duration: 0.7s !important;animation-duration: 0.7s !important;}</style><script type="text/javascript" src="lzma.js"></script><script type="text/javascript" src="unlockalllevels.js"></script><script type="text/javascript" src="websdkwrapper.js"></script><script type="text/javascript" src="ovo-level-editor.js"></script><script type="text/javascript" src="ovo-multiplayer.js"></script><style>
+  canvas {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+  }
+  </style><link rel="stylesheet" type="text/css" href="style.css"><link href="fonts.css" rel="stylesheet" type="text/css"><style>
+/* General Styles */
+.ads-popup {
+  font-family: "Helvetica Neue", "Arial Nova", Helvetica, Arial, sans-serif!important;
+}
+
+/* Hidden Elements */
+.ads-popup, .ad-container, #img-button-self {
+  display: none;
+}
+
+/* Ads Popup and Container Styles */
+.ads-popup, .ad-container {
+  position: relative;
+  z-index: 10;
+}
+
+.ads-popup {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index:111111;
+  background: #000000;
+  height: 100vh;
+  width: 100%;
+}
+
+.ad-container {
+  height: 100%;
+}
+
+.ad-container.flex-center {
+  display: flex !important;
+  justify-content: center;
+ // align-items: center;
+}
+
+.ad-container > div iframe {
+ // position:unset;
+}
+
+/* Preloader Styles */
+#afg_preloader {
+  display: flex;
+  justify-content: center;
+ // align-items: center;
+
+}
+
+/* Container123 Styles */
+#container123 {
+  width: 640px;
+  height: 480px;
+}
+
+/* Nested div inside ad-container */
+.ad-container > div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+/* Link Styles */
+#timer_div a, .timer-div a, .continue-lnk-container-rsection, .continue-link-yellow, #continue-link {
+  color: #000;
+}
+
+.continue-lnk-container-rsection, .continue-link-yellow {
+  font-size: 16px;
+
+}
+
+.timer-div {
+  margin-left: 5px;
+}
+
+/* Continue Container Styles */
+#continue-container, .continue-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  bottom: 0;
+  z-index: 10;
+  min-width:160px;
+  background: #ffe420;
+  border-radius: 5px;
+  font-weight: 500;
+  color: #000;
+  height: 20px;
+  padding: 5px;
+  text-align:center;
+}
+
+/* Continue Link Yellow Styles */
+.continue-link-yellow {
+  text-decoration: none;
+  background: #ffe420;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+  height: 20px;
+  position: absolute;
+  left: 15px;
+  top:0;
+  display:block;
+  padding: 5px;
+  text-align:center;
+}
+
+.continue-link-yellow:active::before {
+  opacity: 1;
+  transform: translate(2px, 1px);
+  box-shadow: none;
+}
+
+/* AFG Container Styles */
+#afg_container {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#afg_container .load-wrap {
+  width: 100%;
+  padding-top: 50px;
+  margin-bottom: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+#afg_container .load-wrap .loadingText {
+  display: block;
+  font-size: 20px;
+  margin-top: 46px;
+  color: #fff;
+  text-align: center;
+}
+
+#afg_container .load-wrap .circle {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  margin-left: 20px;
+  border-radius: 50%;
+  animation: afg_container_loading 1.6s infinite;
+  vertical-align: middle;
+}
+
+#afg_container .load-wrap .circle:first-child {
+  animation-delay: 0.1s;
+  background: #f8eb13;
+}
+
+#afg_container .load-wrap .circle:nth-child(2) {
+  animation-delay: 0.3s;
+  background: #29bffd;
+}
+
+#afg_container .load-wrap .circle:nth-child(3) {
+  animation-delay: 0.5s;
+  background: #f3733b;
+}
+
+#afg_container .load-wrap .circle:nth-child(4) {
+  animation-delay: 0.7s;
+  background: #65efbd;
+}
+
+/* Loading Animation */
+@keyframes afg_container_loading {
+  0%, 100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Play Now Button Styles */
+.playNow {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.playWrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  position: absolute;
+}
+
+#playAdsNowButton {
+  width: 88px;
+  height: 88px;
+  position: absolute;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  /* Correct the positioning */
+  left: 50%;
+  top: 50%;
+}
+
+#playAdsNowButton h4 {
+  color: #fff;
+  content: "";
+  height: 118%;
+  left: -9%;
+  position: absolute;
+  top: -9%;
+  width: 118%;
+  z-index: -1;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add drop shadow */
+}
+
+#playAdsNowButton::after {
+  background: #56eeb7;
+  border-radius: 50%;
+  content: "";
+  height: 100%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+#playAdsNowButton svg{
+  height: 34px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: scaleX(1.1) translate(-50%, -50%);
+  width: 40px;
+  z-index: 2;
+}
+
+@keyframes playPulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+</style><link href="fonts.css" rel="stylesheet" type="text/css"><link href="fonts.css" rel="stylesheet" type="text/css"></head> 
+ 
+<body><div class="ads-popup"><!--Start of Preloader call --><div id="afg_preloader"><div id="container123"><div id="videoplayer"></div><div id="adcontainer" class="ad-container"></div></div></div><!-- Continue to Game container with timer --><div id="continue-container" style="display:none"><div id="img-button-container"><div id="img-button-self" class="img-button"></div><div class="continue-lnk-container-rsection"><span id="continue-link">Continue in </span><span id="timer_div" class="timer-div">8</span></div></div></div><div id="afg_container"><div class="load-wrap"><div class="circle"></div><div class="circle"></div><div class="circle"></div><div class="circle"></div><h3 class="loadingText">Just a moment while your content loads</h3></div></div></div> 
+	<div id="fb-root"></div>
+	
+	<script>
+	// Issue a warning if trying to preview an exported project on disk.
+	(function(){
+		// Check for running exported on file protocol
+		if (window.location.protocol.substr(0, 4) === "file")
+		{
+			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
+		}
+	})();
+	</script>
+	
+	<!-- The canvas must be inside a div called c2canvasdiv -->
+	
+	
+	<!-- Pages load faster with scripts at the bottom -->
+	
+	<!-- Construct 2 exported games require jQuery. -->
+	<script src="jquery-3.4.1.min.js"></script>
+  <script src="GameAnalytics.js"></script>
+	<script src="Tween.js"></script>
+	<script src="html2canvas.min.js"></script>
+	<script src="jquery.gritter.js"></script>
+	<script src="howler.js"></script>
+
+	
+    <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<script src="c2runtime.js"></script>
+
+    <script>
+		// Start the Construct 2 project running on window load.
+		jQuery(document).ready(function ()
+		{			
+			// Create new runtime using the c2canvas
+			cr_createRuntime("c2canvas");
+		});
+		
+		// Pause and resume on page becoming visible/invisible
+		function onVisibilityChanged() {
+			if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
+				cr_setSuspended(true);
+			else
+				cr_setSuspended(false);
+		};
+		
+		document.addEventListener("visibilitychange", onVisibilityChanged, false);
+		document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
+		document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
+		
+		function OnRegisterSWError(e)
+		{
+			console.warn("Failed to register service worker: ", e);
+		};
+		
+		// Runtime calls this global method when ready to start caching (i.e. after startup).
+		// This registers the service worker which caches resources for offline support.
+		window.C2_RegisterSW = function C2_RegisterSW()
+		{
+			if (!navigator.serviceWorker)
+				return;		// no SW support, ignore call
+			
+			try {
+				navigator.serviceWorker.register("sw.js", { scope: "./" })
+				.then(function (reg)
+				{
+					console.log("Registered service worker on " + reg.scope);
+				})
+				.catch(OnRegisterSWError);
+			}
+			catch (e)
+			{
+				OnRegisterSWError(e);
+			}
+		};
+    </script>
+ 
+ <div style="position: absolute; overflow: visible; transform: rotate(0deg); top: 713.602px; left: 583.766px; width: 752.469px; height: 208.328px; display: none;" id="banner-container"></div><div id="c2canvasdiv" style="width: 1920px; height: 995px; margin-left: 0px; margin-top: 0px;" class="">
+	
+		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+		<canvas id="c2canvas" width="1920" height="995">
+			<!-- This text is displayed if the visitor's browser does not support HTML5.
+			You can change it, but it is a good idea to link to a description of a browser
+			and provide some links to download some popular HTML5-compatible browsers. -->
+			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org/">What is a browser?</a>
+			<br><br><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br>
+			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br>
+			<a href="http://www.google.com/chrome/">Google Chrome</a><br>
+			<a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
+		</canvas>
+		
+	</div></body></html>
