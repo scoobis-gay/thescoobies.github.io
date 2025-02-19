@@ -55,12 +55,6 @@ function draw(w1, w2, b) {
     ctx.restore();
 }
 
-ctx.beginPath();
-ctx.moveTo(-100, -100);
-ctx.lineTo(100, 100);
-ctx.closePath();
-ctx.stroke();
-
 class neuron {
     constructor(length, learning_rate) {
         this.weights = new Array(length).fill(0);
@@ -93,9 +87,6 @@ class neuron {
 }
 
 let n1 = new neuron(2, 0.1);
-
-n1.weights = [0.2, 0.2];
-n1.bias = 0.2;
 
 for (let i = 0;i < inputsElements.length;i++) {
     inputsElements.item(i).addEventListener("click", (e) => {
