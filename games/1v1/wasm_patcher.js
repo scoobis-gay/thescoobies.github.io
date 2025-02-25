@@ -184,6 +184,7 @@ const OP = Object.freeze({
         load: 0x28,
         store: 0x36,
         const: 0x41,
+        eqz: 0x45,
         eq: 0x46,
         add: 0x6A,
         sub: 0x6B,
